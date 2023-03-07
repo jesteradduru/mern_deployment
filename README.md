@@ -124,14 +124,14 @@ ufw allow "Nginx Full"
 
 #### First configuration
 ```
- nano /etc/nginx/sites-available/netflix
+ nano /etc/nginx/sites-available/darfo2portal
 ```
 ```
 server {
   listen 80;
 
   location / {
-        root /var/www/netflix;
+        root /var/www/darfo2portal;
         index  index.html index.htm;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
@@ -145,13 +145,13 @@ server {
 ```
 
 ```
-ln -s /etc/nginx/sites-available/netflix /etc/nginx/sites-enabled/netflix
+ln -s /etc/nginx/sites-available/netflix /etc/nginx/sites-enabled/darfo2portal
 
 ```
 
 ##### Write your fist message
 ```
-nano /var/www/netflix/index.html
+nano /var/www/darfo2portal/index.html
 
 ```
 
@@ -180,7 +180,7 @@ git clone <your repository>
 
 ## Nginx Configuration for new apps
 ```
-nano /etc/nginx/sites-available/netflix
+nano /etc/nginx/sites-available/darfo2portal
 ```
 ```
 location /api {
@@ -253,20 +253,20 @@ npm run build
 Right now, we should move this build file into the main web file
 
 ```
-rm -rf /var/www/netflix/*
+rm -rf /var/www/darfo2portal/*
 ```
 ```
-mkdir /var/www/netflix/client
+mkdir /var/www/darfo2portal
 ```
 
 ```
-cp -r build/* /var/www/netflix/client
+cp -r build/* /var/www/darfo2portal
 ```
 
 Let's make some server configuration
 ```
  location / {
-        root /var/www/netflix/client/;
+        root /var/www/darfo2portal;
         index  index.html index.htm;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
@@ -291,7 +291,7 @@ server {
  server_name safakkocaoglu.com www.safakkocaoglu.com;
 
 location / {
- root /var/www/netflix/client;
+ root /var/www/darfo2portal;
  index  index.html index.htm;
  proxy_http_version 1.1;
  proxy_set_header Upgrade $http_upgrade;
